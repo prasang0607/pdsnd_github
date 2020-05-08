@@ -160,22 +160,22 @@ def station_stats(df):
     start_time = time.time()
 
     # TO DO: display most commonly used start station
-    start_station_count = df['start_station'].value_counts()
-    common_start_station = start_station_count.index[0]
-    common_start_station_count = start_station_count.values[0]
+    most_common_start_station = df['start_station'].value_counts()
+    common_start_station = most_common_start_station.index[0]
+    common_start_station_count = most_common_start_station.values[0]
     print(f'Most common start station: "{common_start_station}", Count: {common_start_station_count}')
 
     # TO DO: display most commonly used end station
-    end_station_count = df['end_station'].value_counts()
-    common_end_station = end_station_count.index[0]
-    common_end_station_count = end_station_count.values[0]
+    most_common_end_station = df['end_station'].value_counts()
+    common_end_station = most_common_end_station.index[0]
+    common_end_station_count = most_common_end_station.values[0]
     print(f'Most common end station: "{common_end_station}", Count: {common_end_station_count}')
 
     # TO DO: display most frequent combination of start station and end station trip
-    common_station_combination = df.groupby(['start_station', 'end_station'])['start_time'].count().nlargest(1)
-    start_station = common_station_combination.index[0][0]
-    end_station = common_station_combination.index[0][1]
-    count = common_station_combination.values[0]
+    most_common_station_combination = df.groupby(['start_station', 'end_station'])['start_time'].count().nlargest(1)
+    start_station = most_common_station_combination.index[0][0]
+    end_station = most_common_station_combination.index[0][1]
+    count = most_common_station_combination.values[0]
     print(f'Most common combination of start & end station: "{start_station}" to "{end_station}", Count: {count}')
 
     print("\nThis took %s seconds.\n" % (time.time() - start_time))
