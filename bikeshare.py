@@ -131,21 +131,21 @@ def time_stats(df):
     start_time = time.time()
 
     # TO DO: display the most common month
-    month_count = df['month'].value_counts()
-    common_month = month_count.index[0].title()
-    common_month_count = month_count.values[0]
+    most_common_month = df['month'].value_counts()
+    common_month = most_common_month.index[0].title()
+    common_month_count = most_common_month.values[0]
     print(f'Most common month: "{common_month}", Count: {common_month_count}')
 
     # TO DO: display the most common day of week
-    day_count = df['day_of_week'].value_counts()
-    common_day = day_count.index[0].title()
-    common_day_count = day_count.values[0]
+    most_common_day = df['day_of_week'].value_counts()
+    common_day = most_common_day.index[0].title()
+    common_day_count = most_common_day.values[0]
     print(f'Most common day of week: "{common_day}", Count: {common_day_count}')
 
     # TO DO: display the most common start hour
-    hour_count = df['start_hour'].value_counts()
-    common_hour = hour_count.index[0]
-    common_hour_count = hour_count.values[0]
+    most_common_hour = df['start_hour'].value_counts()
+    common_hour = most_common_hour.index[0]
+    common_hour_count = most_common_hour.values[0]
     print(f'Most common start hour: {common_hour}, Count: {common_hour_count}')
 
     print("\nThis took %s seconds.\n" % (time.time() - start_time))
