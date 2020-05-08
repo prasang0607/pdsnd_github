@@ -20,6 +20,8 @@ Following are the three files used for this project:
 * New York bikeshare data
 * Washington bikeshare data
 
+The data is provided by [Motivate](https://www.motivateco.com/), a bike share system provider for many major cities in the United States, to uncover bike share usage patterns. 
+
 #### Credits
 This project is created as part of Udacity's Nanodegree program.
 Apart from the Udacity program content, I took help some tutorials on youtube about date manipulation and finding some basic stats using pandas:
