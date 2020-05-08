@@ -136,21 +136,21 @@ def time_stats(df):
     start_time = time.time()
 
     # TO DO: display the most common month
-    month_count = df['month'].value_counts()
-    common_month = month_count.index[0].title()
-    common_month_count = month_count.values[0]
+    most_common_month = df['month'].value_counts()
+    common_month = most_common_month.index[0].title()
+    common_month_count = most_common_month.values[0]
     print(f'Most common month: "{common_month}", Count: {common_month_count}')
 
     # TO DO: display the most common day of week
-    day_count = df['day_of_week'].value_counts()
-    common_day = day_count.index[0].title()
-    common_day_count = day_count.values[0]
+    most_common_day = df['day_of_week'].value_counts()
+    common_day = most_common_day.index[0].title()
+    common_day_count = most_common_day.values[0]
     print(f'Most common day of week: "{common_day}", Count: {common_day_count}')
 
     # TO DO: display the most common start hour
-    hour_count = df['start_hour'].value_counts()
-    common_hour = hour_count.index[0]
-    common_hour_count = hour_count.values[0]
+    most_common_hour = df['start_hour'].value_counts()
+    common_hour = most_common_hour.index[0]
+    common_hour_count = most_common_hour.values[0]
     print(f'Most common start hour: {common_hour}, Count: {common_hour_count}')
 
     print("\nThis took %s seconds.\n" % (time.time() - start_time))
@@ -165,22 +165,22 @@ def station_stats(df):
     start_time = time.time()
 
     # TO DO: display most commonly used start station
-    start_station_count = df['start_station'].value_counts()
-    common_start_station = start_station_count.index[0]
-    common_start_station_count = start_station_count.values[0]
+    most_common_start_station = df['start_station'].value_counts()
+    common_start_station = most_common_start_station.index[0]
+    common_start_station_count = most_common_start_station.values[0]
     print(f'Most common start station: "{common_start_station}", Count: {common_start_station_count}')
 
     # TO DO: display most commonly used end station
-    end_station_count = df['end_station'].value_counts()
-    common_end_station = end_station_count.index[0]
-    common_end_station_count = end_station_count.values[0]
+    most_common_end_station = df['end_station'].value_counts()
+    common_end_station = most_common_end_station.index[0]
+    common_end_station_count = most_common_end_station.values[0]
     print(f'Most common end station: "{common_end_station}", Count: {common_end_station_count}')
 
     # TO DO: display most frequent combination of start station and end station trip
-    common_station_combination = df.groupby(['start_station', 'end_station'])['start_time'].count().nlargest(1)
-    start_station = common_station_combination.index[0][0]
-    end_station = common_station_combination.index[0][1]
-    count = common_station_combination.values[0]
+    most_common_station_combination = df.groupby(['start_station', 'end_station'])['start_time'].count().nlargest(1)
+    start_station = most_common_station_combination.index[0][0]
+    end_station = most_common_station_combination.index[0][1]
+    count = most_common_station_combination.values[0]
     print(f'Most common combination of start & end station: "{start_station}" to "{end_station}", Count: {count}')
 
     print("\nThis took %s seconds.\n" % (time.time() - start_time))
@@ -234,14 +234,14 @@ def user_stats(df, city):
         print()
         # TO DO: Display earliest, most recent, and most common year of birth
         # since I have filled the missing values with 0, filter the data where birth_year is not 0
-        birth_year = df[df['birth_year'] != 0]['birth_year']
-        print(f'Earliest birth year: {birth_year.min()}')
-        print(f'Recent birth year: {birth_year.max()}')
+        non_zero_birth_year = df[df['birth_year'] != 0]['birth_year']
+        print(f'Earliest birth year: {non_zero_birth_year.min()}')
+        print(f'Recent birth year: {non_zero_birth_year.max()}')
 
-        common_birth_year = birth_year.value_counts().nlargest(1)
-        common_year = common_birth_year.index[0]
-        common_year_count = common_birth_year.values[0]
-        print(f'Most common year of birth: {common_year}, Count: {common_year_count}')
+        common_birth_year = non_zero_birth_year.value_counts().nlargest(1)
+        most_common_year = common_birth_year.index[0]
+        most_common_year_count = common_birth_year.values[0]
+        print(f'Most common year of birth: {most_common_year}, Count: {most_common_year_count}')
 
     print("\nThis took %s seconds.\n" % (time.time() - start_time))
     print('-' * 40)
