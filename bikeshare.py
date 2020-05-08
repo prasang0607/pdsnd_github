@@ -1,8 +1,10 @@
+# importing required libraries
 from os import name, system
 from pprint import pprint
 import pandas as pd
 import time
 
+# mapping city names with particular city dataset
 CITY_DATA = {'chicago': 'chicago.csv',
              'new york': 'new_york_city.csv',
              'washington': 'washington.csv'}
@@ -110,10 +112,12 @@ def load_data(city, month, day):
     df['month'] = df['start_time'].dt.month_name().str.lower().astype('category')
     df['start_hour'] = df['start_time'].dt.hour.astype('category')
 
-    # filtering the data
+    # ---- filtering the data ----
+    # filter data by month if month is not None
     if month:
         df = df[df['month'] == month]
 
+    # filter data by day if day is not None
     if day:
         df = df[df['day_of_week'] == day]
 
