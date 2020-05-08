@@ -11,6 +11,7 @@ CITY_DATA = {'chicago': 'chicago.csv',
 
 
 def clear_console():
+    """clears the console regardless of the user operating system"""
     if name == 'nt':
         _ = system('cls')
     else:
