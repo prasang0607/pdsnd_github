@@ -229,14 +229,14 @@ def user_stats(df, city):
         print()
         # TO DO: Display earliest, most recent, and most common year of birth
         # since I have filled the missing values with 0, filter the data where birth_year is not 0
-        birth_year = df[df['birth_year'] != 0]['birth_year']
-        print(f'Earliest birth year: {birth_year.min()}')
-        print(f'Recent birth year: {birth_year.max()}')
+        non_zero_birth_year = df[df['birth_year'] != 0]['birth_year']
+        print(f'Earliest birth year: {non_zero_birth_year.min()}')
+        print(f'Recent birth year: {non_zero_birth_year.max()}')
 
-        common_birth_year = birth_year.value_counts().nlargest(1)
-        common_year = common_birth_year.index[0]
-        common_year_count = common_birth_year.values[0]
-        print(f'Most common year of birth: {common_year}, Count: {common_year_count}')
+        common_birth_year = non_zero_birth_year.value_counts().nlargest(1)
+        most_common_year = common_birth_year.index[0]
+        most_common_year_count = common_birth_year.values[0]
+        print(f'Most common year of birth: {most_common_year}, Count: {most_common_year_count}')
 
     print("\nThis took %s seconds.\n" % (time.time() - start_time))
     print('-' * 40)
