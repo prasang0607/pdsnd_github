@@ -7,6 +7,8 @@ This project is about exploring US bikeshare data of three cities namely Chicago
 with the system from CLI. He can choose the city he want to explore and can apply filters all right from the terminal itself. It will display
 basic stats like frequent travel time, trip duration stats, etc. A user can also look at the raw data on demand.
 
+If you are a R geek, have a look at the R version, visit [here](https://github.com/prasang0607/pdsnd_project_r).
+
 #### Libraries Used
 Following are the libraries that go behind the working of this project:
 * [**pandas**](https://pandas.pydata.org/): pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
